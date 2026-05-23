@@ -22,7 +22,6 @@ architecture rtl of mac_csa is
   signal products  : p_array_trunc(0 to N-1);
   signal valid_reg : std_logic := '0';
   signal products_reg : p_array_trunc(0 to N-1);
-  signal sum_reg : signed(Y_WIDTH_TRUNC-1 downto 0);
 begin
 
 
@@ -48,33 +47,13 @@ begin
     end if;
   end process;
 
-  process(clk)
-  begin
-    if rising_edge(clk) then
-      if rst = '1' then
-            sum_reg   <= (others => '0');
-            valid_out <= '0';
-
-      else
-            valid_out <= valid_reg;
-
-        if valid_reg = '1' then
-            sum_reg <=
-            resize(products_reg(0), Y_WIDTH_TRUNC) +
-            resize(products_reg(1), Y_WIDTH_TRUNC) +
-            resize(products_reg(2), Y_WIDTH_TRUNC) +
-            resize(products_reg(3), Y_WIDTH_TRUNC) +
-            resize(products_reg(4), Y_WIDTH_TRUNC) +
-            resize(products_reg(5), Y_WIDTH_TRUNC) +
-            resize(products_reg(6), Y_WIDTH_TRUNC) +
-            resize(products_reg(7), Y_WIDTH_TRUNC) +
-            resize(products_reg(8), Y_WIDTH_TRUNC);
-        end if;
-      end if;
-    end if;
-  end process;
-
-y <= sum_reg;
-
-    
+  U_CSA : entity work.csa_tree
+    port map(
+      clk       => clk,
+      rst       => rst,
+      valid_in  => valid_reg,
+      p         => products_reg,
+      valid_out => valid_out,
+      sum       => y
+    );
 end architecture rtl;

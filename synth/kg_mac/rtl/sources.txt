@@ -2,4 +2,3 @@ pkg.vhd
 csa_tree.vhd
 mac_csa.vhd
 top_without_mem.vhd
---../../../sim/kg_mac/testbenches/mac_csa_tb.vhd

@@ -120,7 +120,7 @@ begin
         std_logic_vector(to_signed(vi, X_W_WIDTH));
     end loop;
 
-    -- program SRAM
+    -- program weight memory
     wait until rising_edge(clk);
     mem_addr <= (others => '0');
     mem_din  <= w_word;

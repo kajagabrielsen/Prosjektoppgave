@@ -158,7 +158,7 @@ begin
     end loop;
 
     ------------------------------------------------------------------
-    -- Program weight SRAM
+    -- Program weight memory
     ------------------------------------------------------------------
     wait until falling_edge(clk);
 

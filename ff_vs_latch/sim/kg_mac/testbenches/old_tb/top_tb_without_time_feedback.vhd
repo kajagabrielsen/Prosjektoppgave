@@ -103,7 +103,7 @@ begin
     end loop;
 
     --------------------------------------------------------------------
-    -- 1) While rst='1': read FIRST line weights and program SRAM
+    -- 1) While rst='1': read FIRST line weights and program weight memory
     --------------------------------------------------------------------
     wait for 2 ns;  -- small time before first actions
 
@@ -121,7 +121,7 @@ begin
       x(i) <= to_signed(xi, X_W_WIDTH);
     end loop;
 
-    -- Read weights from first line and pack into SRAM word
+    -- Read weights from first line and pack into weight memory word
     w_word := (others => '0');
     for i in 0 to N-1 loop
       read(L_in, wi);
@@ -134,7 +134,7 @@ begin
     exp_q(wptr) <= to_signed(exp_i, Y_WIDTH_TRUNC);
     wptr <= (wptr + 1) mod QDEPTH;
 
-    -- Program SRAM at addr 0 while reset is still asserted
+    -- Program weight memory at addr 0 while reset is still asserted
     wait until rising_edge(clk);
     mem_addr <= (others => '0');
     mem_din  <= w_word;
@@ -145,12 +145,12 @@ begin
     mem_din  <= (others => '0');
 
     --------------------------------------------------------------------
-    -- 2) Release reset so top latches SRAM output on next clock
+    -- 2) Release reset
     --------------------------------------------------------------------
     wait for 2 ns;
     rst <= '0';
 
-    -- Give SRAM output time to become valid and allow loaded='1'
+    -- Give memory output time to become valid and allow loaded='1'
     wait until rising_edge(clk);
     wait until rising_edge(clk);
 
@@ -173,10 +173,9 @@ begin
         x(i) <= to_signed(xi, X_W_WIDTH);
       end loop;
 
-      -- Read weights fields but ignore them (SRAM weights are fixed now)
+      -- Read weights fields but ignore them (weight memory weights are fixed now)
       for i in 0 to N-1 loop
         read(L_in, wi);
-        -- optional: you could check they match the first-line weights
       end loop;
 
       -- Read expected output

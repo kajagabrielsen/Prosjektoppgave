@@ -152,7 +152,7 @@ begin
     sent_count <= 1;
 
     --------------------------------------------------------------------
-    -- 2) Start measurement at SRAM programming
+    -- 2) Start measurement at weight memory programming
     --------------------------------------------------------------------
     t_start <= now;
     measurement_started <= '1';
@@ -167,7 +167,7 @@ begin
     mem_din  <= (others => '0');
 
     --------------------------------------------------------------------
-    -- 3) Release reset and wait for SRAM path to become ready
+    -- 3) Release reset and wait for weight memory path to become ready
     --------------------------------------------------------------------
     wait for 2 ns;
     rst <= '0';

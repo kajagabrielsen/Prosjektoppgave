@@ -188,7 +188,7 @@ begin
     end loop;
 
     ------------------------------------------------------------------------
-    -- Program weight SRAM
+    -- Program weight memory
     ------------------------------------------------------------------------
     t_start <= now;
     wait until rising_edge(clk);

@@ -25,3 +25,5 @@ runs/
 work*/
 *.f
 *.sv
+
+run_genus_*

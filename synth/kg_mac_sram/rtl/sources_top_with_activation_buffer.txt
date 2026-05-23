@@ -4,4 +4,3 @@ mac_csa.vhd
 weight_sram.vhd
 activation_window_buffer.vhd
 top_with_activation_buffer.vhd
---../../../sim/kg_mac/testbenches/top_with_activation_buffer_tb.vhd

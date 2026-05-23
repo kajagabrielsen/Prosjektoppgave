@@ -7,7 +7,7 @@ use work.pkg.all;
 entity weight_sram is
   generic (
     DEPTH : natural := 1;
-    ADDR_WIDTH : natural := 1  -- log2(DEPTH) (for DEPTH=1 er dette litt dummy)
+    ADDR_WIDTH : natural := 1  -- log2(DEPTH) (for DEPTH=1 is this a bit dummy)
   );
   port (
     clk  : in  std_logic;

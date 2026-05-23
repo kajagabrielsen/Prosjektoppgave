@@ -3,4 +3,3 @@ csa_tree.vhd
 mac_csa.vhd
 weight_sram.vhd
 top.vhd
---../../../sim/kg_mac/testbenches/top_tb.vhd
