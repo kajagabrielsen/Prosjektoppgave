@@ -1,0 +1,6 @@
+pkg.vhd
+csa_tree.vhd
+mac_csa.vhd
+weight_latch_mem.vhd
+top_latch.vhd
+--../../../sim/kg_mac/testbenches/top_tb.vhd
