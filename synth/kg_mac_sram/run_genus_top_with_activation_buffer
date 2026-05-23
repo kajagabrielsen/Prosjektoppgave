@@ -1,4 +1,0 @@
-cd work
-rm -fr *
-genus -lic_stack 200 -lic_startup Virtuoso_Digital_Implem -batch -f ../synth_top_with_activation_buffer.tcl -log genus.log
-cd ..
