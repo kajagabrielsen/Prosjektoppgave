@@ -39,12 +39,17 @@ Power consumption and area utilization were analyzed using synthesized netlists 
 
 ---
 
+## Repository Structure
+
+```text
 ├── ff_vs_latch/
-│   ├── sim/kg_mac      # Testbenches for MAC implementations with flip-flop-based and latch-based weight memory
-│   └── synth/kg_mac    # RTL implementations of MAC architectures with flip-flop-based and latch-based weight memory
-├── sim/kg_mac/
-│   └── testbenches/    # Testbenches for MAC architectures with and without weight and activation memory
+│   ├── sim/kg_mac/      # Testbenches for MAC implementations with flip-flop-based and latch-based weight memory
+│   └── synth/kg_mac/    # RTL implementations of MAC architectures with flip-flop-based and latch-based weight memory
+├── sim/
+│   └── kg_mac/
+│       └── testbenches/ # Testbenches for MAC architectures with and without weight and activation memory
 ├── synth/
-│   ├── kg_mac/         # RTL implementations of MAC architectures without weight or activation memory
-│   └── kg_mac_sram/    # RTL implementations of MAC architectures with weight memory and optional activation buffering
+│   ├── kg_mac/          # RTL implementations of MAC architectures without weight or activation memory
+│   └── kg_mac_sram/     # RTL implementations of MAC architectures with weight memory and optional activation buffering
 └── README.md
+```
